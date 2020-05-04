@@ -21,7 +21,12 @@ class Devis
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $etatDevis;
+    private $nom_devis;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $etat_devis;
 
     /**
      * @ORM\Column(type="float")
@@ -36,12 +41,12 @@ class Devis
     /**
      * @ORM\Column(type="float")
      */
-    private $tauxRemise;
+    private $taux_remise;
 
     /**
      * @ORM\Column(type="date")
      */
-    private $dateCreation;
+    private $date_creation;
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Projet", cascade={"persist", "remove"})
@@ -53,14 +58,26 @@ class Devis
         return $this->id;
     }
 
-    public function getEtatDevis(): ?string
+    public function getNomDevis(): ?string
     {
-        return $this->etatDevis;
+        return $this->nom_devis;
     }
 
-    public function setEtatDevis(string $etatDevis): self
+    public function setNomDevis(string $nom_devis): self
     {
-        $this->etatDevis = $etatDevis;
+        $this->nom_devis = $nom_devis;
+
+        return $this;
+    }
+
+    public function getEtatDevis(): ?string
+    {
+        return $this->etat_devis;
+    }
+
+    public function setEtatDevis(string $etat_devis): self
+    {
+        $this->etat_devis = $etat_devis;
 
         return $this;
     }
@@ -91,24 +108,24 @@ class Devis
 
     public function getTauxRemise(): ?float
     {
-        return $this->tauxRemise;
+        return $this->taux_remise;
     }
 
-    public function setTauxRemise(float $tauxRemise): self
+    public function setTauxRemise(float $taux_remise): self
     {
-        $this->tauxRemise = $tauxRemise;
+        $this->taux_remise = $taux_remise;
 
         return $this;
     }
 
     public function getDateCreation(): ?\DateTimeInterface
     {
-        return $this->dateCreation;
+        return $this->date_creation;
     }
 
-    public function setDateCreation(\DateTimeInterface $dateCreation): self
+    public function setDateCreation(\DateTimeInterface $date_creation): self
     {
-        $this->dateCreation = $dateCreation;
+        $this->date_creation = $date_creation;
 
         return $this;
     }
