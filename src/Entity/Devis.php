@@ -29,17 +29,17 @@ class Devis
     private $etat_devis;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="string", length=255)
      */
     private $totalHT;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="string", length=255)
      */
     private $totalTTC;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="string", length=255)
      */
     private $taux_remise;
 
@@ -82,36 +82,36 @@ class Devis
         return $this;
     }
 
-    public function getTotalHT(): ?float
+    public function getTotalHT(): ?string
     {
         return $this->totalHT;
     }
 
-    public function setTotalHT(float $totalHT): self
+    public function setTotalHT(string $totalHT): self
     {
         $this->totalHT = $totalHT;
 
         return $this;
     }
 
-    public function getTotalTTC(): ?float
+    public function getTotalTTC(): ?string
     {
         return $this->totalTTC;
     }
 
-    public function setTotalTTC(float $totalTTC): self
+    public function setTotalTTC(string $totalTTC): self
     {
         $this->totalTTC = $totalTTC;
 
         return $this;
     }
 
-    public function getTauxRemise(): ?float
+    public function getTauxRemise(): ?string
     {
         return $this->taux_remise;
     }
 
-    public function setTauxRemise(float $taux_remise): self
+    public function setTauxRemise(string $taux_remise): self
     {
         $this->taux_remise = $taux_remise;
 
