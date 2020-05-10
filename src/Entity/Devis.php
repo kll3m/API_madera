@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -31,19 +29,19 @@ class Devis
     private $etat_devis;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $totalHT;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $totalTTC;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $taux_remise;
+    private $tauxRemise;
 
     /**
      * @ORM\Column(type="date")
@@ -53,9 +51,12 @@ class Devis
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $projet_id;
+    private $id_projet;
 
-
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
     public function getNomDevis(): ?string
     {
@@ -86,7 +87,7 @@ class Devis
         return $this->totalHT;
     }
 
-    public function setTotalHT(string $totalHT): self
+    public function setTotalHT(?string $totalHT): self
     {
         $this->totalHT = $totalHT;
 
@@ -98,7 +99,7 @@ class Devis
         return $this->totalTTC;
     }
 
-    public function setTotalTTC(string $totalTTC): self
+    public function setTotalTTC(?string $totalTTC): self
     {
         $this->totalTTC = $totalTTC;
 
@@ -107,12 +108,12 @@ class Devis
 
     public function getTauxRemise(): ?string
     {
-        return $this->taux_remise;
+        return $this->tauxRemise;
     }
 
-    public function setTauxRemise(string $taux_remise): self
+    public function setTauxRemise(?string $tauxRemise): self
     {
-        $this->taux_remise = $taux_remise;
+        $this->tauxRemise = $tauxRemise;
 
         return $this;
     }
@@ -129,17 +130,15 @@ class Devis
         return $this;
     }
 
-    public function getProjetId(): ?string
+    public function getIdProjet(): ?string
     {
-        return $this->projet_id;
+        return $this->id_projet;
     }
 
-    public function setProjetId(?string $projet_id): self
+    public function setIdProjet(?string $id_projet): self
     {
-        $this->projet_id = $projet_id;
+        $this->id_projet = $id_projet;
 
         return $this;
     }
-
-
 }
