@@ -39,6 +39,7 @@ class Projet
      */
     private $utilisateur;
 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -91,4 +92,6 @@ class Projet
 
         return $this;
     }
+
+
 }

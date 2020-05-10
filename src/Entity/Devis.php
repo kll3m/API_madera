@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -49,14 +51,11 @@ class Devis
     private $date_creation;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Projet", cascade={"persist", "remove"})
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $projet;
+    private $projet_id;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+
 
     public function getNomDevis(): ?string
     {
@@ -130,15 +129,17 @@ class Devis
         return $this;
     }
 
-    public function getProjet(): ?Projet
+    public function getProjetId(): ?string
     {
-        return $this->projet;
+        return $this->projet_id;
     }
 
-    public function setProjet(?Projet $projet): self
+    public function setProjetId(?string $projet_id): self
     {
-        $this->projet = $projet;
+        $this->projet_id = $projet_id;
 
         return $this;
     }
+
+
 }
